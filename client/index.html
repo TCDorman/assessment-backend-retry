@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Back End Assessment</title>
+  </head>
+  <body class="container">
+    <button id="complimentButton">Get a compliment</button>
+    <br>
+    <button id="fortune">Get a fortune</button>
+    <br>
+    <button id="good_thought">Get a good thought</button>
+    <br> 
+    <button id="funThings">Fun Things</button>
+    <br>
+    <button id="fastCars">Fast Cars</button>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      document.getElementById("complimentButton").onclick = function () {
+        axios.get("http://localhost:4000/api/compliment/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data);
+            });
+      };
+
+      document.getElementById("fortune").onclick = function () {
+        axios.get("http://localhost:4000/api/lucky/")
+          .then(function (response) {
+            const data = response.data;
+            alert(data);
+            // console.log(response.data)
+          }).catch(err => console.log(err));
+      };
+
+      document.getElementById("good_thought").onclick = function () {
+        axios.get("http://localhost:4000/api/good_thought/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data)
+            })
+      };
+
+      document.getElementById("funThings").onclick = function () {
+        axios.get("http://localhost:4000/api/funThings/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data)
+            })
+      };
+
+      document.getElementById("fastCars").onclick = function () {
+        axios.get("http://localhost:4000/api/fastCars/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data)
+            })
+      };
+    </script>
+  </body>
+</html>
